@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id = "nicknameInput" placeholder="nickname">
+    <button id = "submitButton">Submit</button>
+    <script>
+            
+        var nicknameInput = document.getElementById("nicknameInput")
+        var submitButton = document.getElementById("submitButton")
+
+        submitButton.addEventListener("click", function(){
+            fetch("http://localhost:3000", {method:"POST", headers:{'Content-Type': 'application/json'},body:JSON.stringify({name:nicknameInput.value})})
+            .then(res => res.json()).then(data=>console.log(data))
+
+            // if (message === "Success"){
+            //     window.location.href = "http://www.w3schools.com"
+            // }
+ 
+        })
+
+    </script>
+    
+</body>
+</html>
